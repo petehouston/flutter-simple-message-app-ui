@@ -31,13 +31,20 @@ class _HomeScreenState extends State<HomeScreen> {
           itemCount: ChatModel.dummyData.length,
           itemBuilder: (context, index) {
             ChatModel _model = ChatModel.dummyData[index];
-            return ListTile(
-              leading: CircleAvatar(
-                backgroundImage: NetworkImage(_model.avatarUrl),
-              ),
-              title: Text(_model.name),
-              subtitle: Text(_model.message),
-              trailing: Text(_model.datetime),
+            return Column(
+              children: <Widget>[
+                Divider(
+                  height: 16.0,
+                ),
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(_model.avatarUrl),
+                  ),
+                  title: Text(_model.name),
+                  subtitle: Text(_model.message),
+                  trailing: Text(_model.datetime),
+                ),
+              ],
             );
           },
         ),
