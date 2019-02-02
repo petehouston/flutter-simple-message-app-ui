@@ -34,15 +34,30 @@ class _HomeScreenState extends State<HomeScreen> {
             return Column(
               children: <Widget>[
                 Divider(
-                  height: 16.0,
+                  height: 12.0,
                 ),
                 ListTile(
                   leading: CircleAvatar(
+                    radius: 24.0,
                     backgroundImage: NetworkImage(_model.avatarUrl),
                   ),
-                  title: Text(_model.name),
+                  title: Row(
+                    children: <Widget>[
+                      Text(_model.name),
+                      SizedBox(
+                        width: 16.0,
+                      ),
+                      Text(
+                        _model.datetime,
+                        style: TextStyle(fontSize: 12.0),
+                      ),
+                    ],
+                  ),
                   subtitle: Text(_model.message),
-                  trailing: Text(_model.datetime),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14.0,
+                  ),
                 ),
               ],
             );
